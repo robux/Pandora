@@ -5,116 +5,154 @@ Contents
 
 1) overview
 2) system requirements
-3) installation in Ubuntu/Debian
-4) installation in other Linux
-5) installation in Windows
-6) update to last version
-7) recommendation to developers
+3) installation in Ubuntu
+4) installation in Windows
+5) installation in Debian
+6) manual installation or update
+7) join as developer
+8) getting help
 
 
 1. OVERVIEW
 
-Pandora is a free multiplatform distributed (p2p) information system.
-Pandora includes functions of social network, instant messanger, audio and
-video chatting system, commercial system, distributed development system,
-file exchange system and vote system.
-Read more in the guide at /doc/guide.ru.odt (Russian version yet only)
+Pandora is a free peer-to-peer (P2P) social network application.
+It affords functions of instant messenger, audio and video chat, trading
+platform, commercial system, payment system, distributed development
+system, file exchange and vote system. Pandora has its own binary protocol,
+uses a cryptography and a web of trust.
+
+Pandora is not yet another "geek thing". It is designed for ordinary people,
+has a graphical user interface (GUI) and works "out of the box".
+
+The concept of Pandora is described in SysMagazine article:
+http://sysmagazine.com/posts/164149/
+
+See the user manual with pictures in wiki to quick start:
+https://github.com/Novator/Pandora/wiki/Install-and-first-run
 
 
 2. SYSTEM REQUIREMENTS
 
 Mandatory:
-- Linux or Windows (another also possible)
+- Linux or Windows OS (another also possible)
 - SQLite database (MySQL, Postgree, Firebird or another)
 - Ruby script engine
 - GTK2 graphical library
+- OpenSSL crypto library
 Optional:
 - GStreamer media library
 
 
-3. INSTALLATION IN UBUNTU/DEBIAN
+3. INSTALLATION IN UBUNTU
 
-Download a package:
+Do commands in terminal:
 
-  wget http://sourceforge.net/projects/pandora-net/files/pandora-net_0.1-1precise2_all.deb/download
-
-Install it:
-
-  sudo dpkg -i pandora-net_0.1-1precise2_all.deb
+  sudo apt-add-repository -y ppa:pandora-net/ppa
+  sudo apt-get update
+  sudo apt-get install -y pandora-net
 
 
-4. INSTALLATION IN OTHER LINUX
+4. INSTALLATION IN WINDOWS
 
-4.1. Download Pandora shell file, make executable and run with "--full-init":
+Download an installation and run it with administrator:
 
-  wget https://raw.github.com/Novator/Pandora/master/pandora.rb
-  chmod +x ./pandora.sh
-  ./pandora.sh --full-init
+  http://sourceforge.net/projects/pandora-net/files/pandora_setup.exe/download
 
-4.2. Install packets with Packet Manager if they didn't installed automatically:
+
+5. INSTALLATION IN DEBIAN
+
+Download a package and install it with root:
+
+  http://sourceforge.net/projects/pandora-net/files/pandora-net_0.2-1ubuntu_all.deb/download
+  dpkg -i pandora-net_0.2-1ubuntu_all.deb
+
+
+6. MANUAL INSTALLATION OR UPDATE
+
+6.1. Download the archive and unpack it:
+
+  https://github.com/Novator/Pandora/archive/master.zip
+
+6.2. Install packets:
 
   ruby, ruby-sqlite3, ruby-gtk2, ruby-gstreamer, openssl, gstreamer0.10-x,
   gstreamer0.10-ffmpeg, gstreamer0.10-plugins-good, gstreamer0.10-plugins-bad
 
-4.3. Run Pandora from menu "Start-Network-Pandora" or use shell:
+6.3. Set executable rights:
 
-  ./pandora.sh
+  chmod +x ./pandora.sh
 
+6.4. Copy shortcut to desktop with root and edit paths inside:
 
-5. INSTALLATION IN WINDOWS
+  cp ./view/pandora.desktop /usr/share/applications/
+  nano /usr/share/applications/pandora.desktop
 
-5.1. Download full installation from here:
-
-  http://sourceforge.net/projects/pandora-net/files/pandora_setup.exe/download
-
-5.2. Run Pandora from menu:
-
-  "Start" - "Programs" - "Pandora"
-
-5.3. Also you can run Pandora with bat-file:
-
-  .\pandora.bat
+Pandora can update itself by user click to button on status bar.
 
 
-6. UPDATE TO LAST VERSION
+7. JOIN AS DEVELOPER
 
-Pandora is updating itself automatically, but partly.
-6.1. For full update just do it in Linux:
+7.1. See current technical tasks at file:
 
-  ./pandora.sh --full-init
+  https://github.com/Novator/Pandora/blob/master/doc/todo.ru.txt
 
-6.2. Or download and extract archive:
+7.2. Registrate on GitHub:
 
-  https://github.com/Novator/Pandora/archive/master.zip
+  https://github.com/
 
-6.3. Overwrite old files by new. The default directory for Linux is:
+For example, your login is "YourNick".
 
-  /opt/pandora/
+7.3. Push "Fork" button on top of Pandora github page:
 
-For Windows:
+  https://github.com/Novator/Pandora/fork
 
-  C:\Program Files\Pandora\
+7.4. Install git in Ubuntu:
+
+  sudo apt-get -y install git
+
+in Windows download and install:
+
+  http://msysgit.github.io/
+
+7.5. Download Pandora to your hard disk via git command:
+
+  git clone --depth=3 https://github.com/YourNick/Pandora.git
+
+Warning: change "YourNick" to your login!
+
+7.6. Correct a code with any text editor, for example Geany:
+
+  http://www.geany.org/Download/Releases
+
+7.7. Update your github repository:
+
+  git commit -a -m "your comment" && git push
+
+(see more useful git commands in the file "git.sh")
+
+7.8. Push "Pull Request" at your Pandora github page:
+
+  https://github.com/YourNick/Pandora/pull/new/master
+
+If your contribution will be rated as useful it will be added to next release.
+When you show yourself like active developer you will be added as collaborator.
 
 
-7. RECOMMENDATION TO DEVELOPERS
+8. GETTING HELP
 
-Use git if you want to change a code of Pandora and send a patch.
+Help to Pandora project like a programmer, translator, journalist or donator:
 
-7.1. Install git
+  http://robux.biz/pandora.html
 
-in Ubuntu:
+Communicate together in facebook or vkontakte:
 
-  sudo apt-get install git
+  https://www.facebook.com/p2pandora
+  https://vk.com/pandoranet
 
-in Windows:
+Ask author for help:
 
-  open with browser "http://code.google.com/p/msysgit/downloads/list"
-  download and install last version "Git-N.N.N-previewYYYYMMDD.exe"
-
-7.2. Create empty directory "Pandora.dev", stay there, download Pandora with command:
-
-  git clone --depth=1 https://github.com/Novator/Pandora.git
-
-Now you can change the code and make patches.
-See more useful git commands in the file "git.sh".
+  http://facebook.com/robux
+  http://vk.com/robux
+  robux@mail.ru
+  Michael Galyuk
 

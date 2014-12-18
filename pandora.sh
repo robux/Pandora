@@ -12,6 +12,7 @@
 #export LANG="ru_RU.UTF-8"
 #export LANG="tr_TR.UTF-8"
 #export LANG="en_US.UTF-8"
+#export LANG="en_AU.UTF-8"
 #export LANG="ua_UA.UTF-8"
 
 DIRFILE=`readlink -e "$0"`
@@ -20,7 +21,16 @@ CURDIR=`dirname "$DIRFILE"`
 
 # Searching a path to ruby
 PARAMS="$1"
-RUBY=`which ruby`
+RUBY=`which ruby2.0`
+if [ "$RUBY" = "" ]; then
+  RUBY=`which ruby1.9.3`
+  if [ "$RUBY" = "" ]; then
+    RUBY=`which ruby1.9.1`
+    if [ "$RUBY" = "" ]; then
+      RUBY=`which ruby`
+    fi
+  fi
+fi
 if [ "$RUBY" = "" ]; then
   if [ ! -f "$RUBY" ]; then
     RUBY="/usr/bin/ruby"
@@ -87,7 +97,7 @@ case "$PARAMS" in
     sudo gem install sqlite3 gtk2 gstreamer openssl
     ;;
   *)
-    cd $CURDIR
+    cd "$CURDIR"
     $RUBY ./pandora.rb $@
     ;;
 esac

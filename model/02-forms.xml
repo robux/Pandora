@@ -3,9 +3,9 @@
   <World>
 
     <Person order="1">
-      <first_name pos="1" fsize="20" />
-      <last_name pos="+1" fsize="25" />
-      <birth_day pos="|+1" />
+      <first_name pos="1" fsize="20" required="2" />
+      <last_name pos="+1" fsize="25" required="2" />
+      <birth_day pos="|+1" required="8" />
       <birth_place pos="+0.10up" />
       <father_name pos="|up+0.3" />
       <mother_name pos="up+0.1" />
@@ -18,20 +18,71 @@
       <origin_place pos="|+1" fsize="34" />
     </Community>
 
-    <Article>
+    <Blob>
       <name pos="|" />
+      <blob pos="|" view="blob" />
       <type pos="|" />
-      <text view="text" />
       <hash view="hex" />
-    </Article>
+    </Blob>
+
+    <Country>
+      <alfa2 pos="|" />
+    </Country>
+
+    <Relation>
+      <first view="panhash" />
+      <second view="panhash" />
+      <kind view="byte" />
+    </Relation>
 
   </World>
+
+  <Business>
+
+    <Deposit>
+      <creator pos="1" />
+      <condition pos="|2" />
+      <content pos="3" />
+      <currency pos="|4" />
+      <sum pos="5" />
+      <created pos="|100" />
+    </Deposit>
+
+    <Guarantee>
+      <creator pos="1" />
+      <obligor pos="|2" />
+      <condition pos="|3" />
+      <currency pos="|4" />
+      <sum pos="5" />
+      <created pos="|100" />
+    </Guarantee>
+
+    <Insurer>
+      <creator pos="1" />
+      <condition pos="2" />
+    </Insurer>
+
+  </Business>
+
+  <Region>
+
+    <Registry>
+      <creator pos="1" />
+      <recipient pos="|2" />
+      <resolution pos="|3" />
+      <number pos="|4" />
+      <attributes pos="5"/>
+      <created pos="6" />
+    </Registry>
+
+  </Region>
 
   <Pandora name="Pandora Node">
 
     <Panobject>
-      <panhash pos="|254,hide" view="phash" />
-      <modified pos="255" view="time" />
+      <panhash pos="|253,hide" view="phash" />
+      <modified pos="|254" view="time" />
+      <panstate pos="255,hide" view="word" />
     </Panobject>
 
     <Created>
@@ -39,13 +90,13 @@
       <created pos="253" view="time" />
     </Created>
 
-    <Parameter order="101">
+    <Parameter order="101" sort="section, name">
       <name pos="1" fsize="32" />
       <type pos="+1" />
       <section pos="+1" />
       <desc pos="|+1" fsize="64" />
-      <value pos="|+1" fsize="64" />
-      <setting pos="|+1" fsize="64" />
+      <value pos="|+1" fsize="64" view="string" />
+      <setting pos="|+1" fsize="64" view="string" />
     </Parameter>
 
     <Key>
@@ -58,9 +109,15 @@
     <Sign>
       <obj_hash view="panhash" />
       <key_hash view="panhash" />
-      <packed view="hex" />
+      <trust view="byte" />
       <sign view="base64" />
     </Sign>
+
+    <Node>
+      <domain fsize="64" />
+      <password fsize="32" />
+      <name fsize="64" />
+    </Node>
 
   </Pandora>
 

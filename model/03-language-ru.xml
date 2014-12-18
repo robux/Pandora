@@ -4,6 +4,7 @@
     <Panobject name.ru="Объект Пандоры">
       <panhash name.ru="Панхэш" />
       <modified name.ru="Изменен" />
+      <panstate name.ru="Панопции" />
     </Panobject>
 
     <Created>
@@ -32,28 +33,29 @@
     </Community>
 
     <Language name.ru="Язык|Языки">
-      <code name.ru="Код" />
       <name name.ru="Название" />
+      <alfa2 name.ru="Альфа-2" />
+      <alfa3 name.ru="Альфа-3" />
+      <pancode name.ru="Панкод" />
     </Language>
 
     <Country name.ru="Страна|Страны">
-      <code name.ru="Код" />
       <name name.ru="Название" />
-      <area name.ru="Площадь" />
+      <alfa2 name.ru="Альфа-2" />
+      <alfa3 name.ru="Альфа-3" />
     </Country>
 
     <City name.ru="Город|Города">
       <name name.ru="Название" />
-      <country name.ru="Страна" />
-      <population name.ru="Население" />
+      <coord name.ru="Координата" />
     </City>
 
     <Street name.ru="Улица|Улицы">
-      <city name.ru="Город" />
       <name name.ru="Название" />
+      <city name.ru="Город" />
     </Street>
 
-    <Address name.ru="Страна|Страны">
+    <Address name.ru="Адрес|Адреса">
       <street name.ru="Улица" />
       <building name.ru="Дом" />
       <appartment name.ru="Квартира" />
@@ -62,53 +64,30 @@
     <Contact name.ru="Контакт|Контакты">
       <type name.ru="Тип" />
       <value name.ru="Значение" />
-      <owner_list name.ru="Владельцы" />
     </Contact>
-
-    <Document name.ru="Документ|Документы">
-      <type name.ru="Тип" />
-      <code name.ru="Номер" />
-      <target name.ru="Принадлежит" />
-    </Document>
-
-    <Activity name.ru="Деятельность|Увлечения">
-      <name name.ru="Название" />
-      <description name.ru="Описание" />
-    </Activity>
-
-    <Thing name.ru="Вещь|Вещи">
-      <name name.ru="Название" />
-      <desc name.ru="Описание" />
-    </Thing>
 
     <Word name.ru="Слово|Слова">
       <name name.ru="Написание" />
       <description name.ru="Описание" />
     </Word>
 
-    <Article name.ru="Статья|Статьи">
-      <name name.ru="Название" />
-      <text name.ru="Текст" />
-      <type name.ru="Тип" />
-    </Article>
-
     <Blob name.ru="Файл|Файлы">
-      <type name.ru="Тип" />
       <name name.ru="Название" />
+      <type name.ru="Тип" />
       <hash name.ru="Хэш" />
       <size name.ru="Размер" />
+      <blob name.ru="Тело" />
     </Blob>
 
     <Relation name.ru="Связь|Связи">
       <first name.ru="Первый объект" />
       <second name.ru="Второй объект" />
-      <type name.ru="Тип" />
+      <kind name.ru="Вид" />
     </Relation>
 
     <Opinion name.ru="Мнение|Мнения">
       <object name.ru="Объект" />
       <creator name.ru="Создатель" />
-      <date name.ru="Дата создания" />
       <score name.ru="Оценка" />
       <comment name.ru="Комментарий" />
     </Opinion>
@@ -116,31 +95,86 @@
   </World>
   <Business name.ru="Дело">
 
-    <Store name.ru="Склады">
-      <name name.ru="" />
-      <producers name.ru="" />
-    </Store>
-
-    <Order name.ru="Заказ|Заказы">
-      <ad name.ru="Объявление" />
-      <list name.ru="Список" />
-      <sum name.ru="Сумма" />
-    </Order>
-
-    <Contract name.ru="Договор|Договоры">
-      <number name.ru="Номер" />
-      <city name.ru="Город" />
-    </Contract>
+    <Storage name.ru="Склад">
+    </Storage>
 
     <Product name.ru="Товар|Товары">
     </Product>
 
+    <Service name.ru="Услуга|Услуги">
+    </Service>
+
     <Currency name.ru="Валюта|Валюты">
       <name name.ru="Название" />
       <code name.ru="Код" />
-      <country name.ru="Страна" />
-      <issuer name.ru="Эммитент" />
     </Currency>
+
+    <Contract name.ru="Договор|Договоры">
+    </Contract>
+
+    <Advertisement name.ru="Объявление">
+      <blob name.ru="Тело" />
+    </Advertisement>
+
+    <Order name.ru="Заказ|Заказы">
+      <advertisement name.ru="Объявление" />
+      <goods name.ru="Блага" />
+      <currency name.ru="Валюта" />
+      <sum name.ru="Сумма" />
+    </Order>
+
+    <Deal name.ru="Сделка">
+      <creator name.ru="Инициатор" />
+      <recipient name.ru="Получатель" />
+      <contract name.ru="Договор" />
+      <body name.ru="Текст" />
+      <currency name.ru="Валюта" />
+      <sum name.ru="Сумма" />
+    </Deal>
+
+    <Debenture name.ru="Расписка">
+      <creator name.ru="Издатель" />
+      <created name.ru="Выпустил" />
+    </Debenture>
+
+    <Transfer name.ru="Перевод">
+      <creator name.ru="Плательщик" />
+      <debenture name.ru="Расписка" />
+      <deal name.ru="Сделка" />
+      <currency name.ru="Валюта" />
+      <sum name.ru="Сумма" />
+    </Transfer>
+
+    <Deposit name.ru="Залог|Залоги">
+      <creator name.ru="Залогодатель" />
+      <condition name.ru="Условия" />
+      <content name.ru="Содержимое" />
+      <currency name.ru="Валюта" />
+      <sum name.ru="Сумма" />
+    </Deposit>
+
+    <Guarantee name.ru="Поручительство|Поручительства">
+      <creator name.ru="Поручитель" />
+      <obligor name.ru="Подопечный" />
+      <condition name.ru="Условия" />
+      <currency name.ru="Валюта" />
+      <sum name.ru="Сумма" />
+    </Guarantee>
+
+    <Insurer name.ru="Страховая|Страховые">
+      <creator name.ru="Основатель" />
+      <condition name.ru="Условия" />
+    </Insurer>
+
+    <Waybill name.ru="Накладная">
+      <deal name.ru="Сделка" />
+      <goods name.ru="Товары и услуги" />
+      <currency name.ru="Валюта" />
+      <sum name.ru="Сумма" />
+    </Waybill>
+
+    <Report name.ru="Отчёт">
+    </Report>
 
   </Business>
   <Region name.ru="Регион">
@@ -151,9 +185,18 @@
 
     <Delegation name.ru="Делегирование|Делегирования">
       <delegate name.ru="Делегат" />
-      <activity name.ru="Деятельность" />
+      <target name.ru="Цель" />
       <expire name.ru="Истекает" />
     </Delegation>
+
+    <Registry name.ru="Регистр|Регистры" >
+      <creator name.ru="Издатель" />
+      <recipient name.ru="Получатель" />
+      <resolution name.ru="Постановление" />
+      <number name.ru="Номер" />
+      <attributes name.ru="Атрибуты" />
+      <created name.ru="Выдан" />
+    </Registry>
 
   </Region>
   <Pandora name.ru="Узел Пандоры">
@@ -169,6 +212,7 @@
 
     <Key name.ru="Ключ|Ключи">
       <kind name.ru="Тип" />
+      <rights name.ru="Разрешения" />
       <expire name.ru="Истекает" />
       <cipher name.ru="Шифрован" />
       <body name.ru="Тело" />
@@ -177,47 +221,40 @@
     <Sign name.ru="Подпись|Подписи">
       <key_hash name.ru="Панхэш ключа" />
       <obj_hash name.ru="Панхэш объекта"/>
-      <packed name.ru="Упакован" />
+      <pack name.ru="Упаковка данных" />
+      <trust name.ru="Доверие" />
       <sign name.ru="Подпись" />
     </Sign>
 
     <Node name.ru="Узел|Узлы">
+      <key_hash name.ru="Панхэш ключа" />
       <base_id name.ru="ID базы" />
       <domain name.ru="Домен" />
+      <name name.ru="Название" />
       <addr name.ru="Адрес" />
       <tport name.ru="Порт TCP" />
       <uport name.ru="Порт UDP" />
+      <addr_type name.ru="Тип адреса" />
+      <addr_from_type name.ru="Тип входящего" />
       <city name.ru="Город" />
       <home name.ru="Дом" />
+      <coord name.ru="Коорд" />
       <state name.ru="Состояние" />
       <sended name.ru="Отправлено" />
       <received name.ru="Принято" />
-      <bad_attempts name.ru="Число ошибочных попыток" />
+      <speed name.ru="Скорость Б/с" />
+      <bad_attempts name.ru="Ошибочных попыток" />
       <ban_time name.ru="Время бана" />
+      <addr_from name.ru="Адрес откуда" />
       <one_ip_count name.ru="Соединений с одного IP" />
-      <session_key name.ru="Последняя отмычка" />
-      <last_conn_time name.ru="Время последнего соединения" />
-      <try_upnp_time name.ru="Время последней попытки UPnP" />
-      <try_natpmp_time name.ru="Время последней попытки NAT-PMP" />
+      <session_key name.ru="Сеансовый ключ" />
+      <try_upnp_time name.ru="Время попытки UPnP" />
+      <try_natpmp_time name.ru="Время попытки NAT-PMP" />
     </Node>
 
-    <Patch name.ru="Изменение|Изменения">
-      <kind name.ru="Тип" />
-      <origin name.ru="Источник" />
-      <creator name.ru="Создатель" />
-      <oldsha1 name.ru="Старый хэш" />
-      <sha1 name.ru="Новый хэш" />
-      <date name.ru="Дата" />
-      <delta name.ru="Разница" />
-    </Patch>
-
     <Event name.ru="Событие|События">
-      <time name.ru="Время" />
+      <initiator name.ru="Инициатор" />
       <kind name.ru="Тип" />
-      <origin name.ru="Источник" />
-      <sha2 name.ru="Хэш" />
-      <creator name.ru="Создатель" />
-      <message name.ru="Пояснение" />
     </Event>
 
     <Repository name.ru="Хранилище|Хранилища">
@@ -227,11 +264,24 @@
     </Repository>
 
     <Message name.ru="Сообщение|Сообщения">
-      <room name.ru="Комната" />
+      <destination name.ru="Получатель" />
       <state name.ru="Состояние" />
-      <date name.ru="Дата" />
       <text name.ru="Текст" />
     </Message>
+
+    <Task name.ru="Задача">
+      <executor name.ru="Исполнитель" />
+      <time name.ru="Время" />
+      <mode name.ru="Режим" />
+      <message name.ru="Сообщение" />
+    </Task>
+
+    <Fishhook name.ru="Рыбалка|Рыбалки">
+      <creator name.ru="Рыбак" />
+      <catch name.ru="Добыча" />
+      <expire name.ru="Истекает" />
+      <state name.ru="Статус" />
+    </Fishhook>
 
   </Pandora>
 
